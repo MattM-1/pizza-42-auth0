@@ -3,6 +3,14 @@
     {
       "action_name": "Marketing",
       "display_name": "Marketing"
+    },
+    {
+      "action_name": "MFA",
+      "display_name": "MFA"
+    },
+    {
+      "action_name": "Add High-Level Scopes",
+      "display_name": "Add High-Level Scopes"
     }
   ]
 }

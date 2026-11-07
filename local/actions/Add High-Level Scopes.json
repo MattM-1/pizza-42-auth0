@@ -1,0 +1,15 @@
+{
+  "name": "Add High-Level Scopes",
+  "code": "./actions/Add High-Level Scopes/code.js",
+  "runtime": "node22",
+  "status": "built",
+  "dependencies": [],
+  "secrets": [],
+  "supported_triggers": [
+    {
+      "id": "post-login",
+      "version": "v3"
+    }
+  ],
+  "deployed": true
+}
