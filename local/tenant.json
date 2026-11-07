@@ -1,0 +1,19 @@
+{
+  "enabled_locales": [
+    "en"
+  ],
+  "flags": {
+    "revoke_refresh_token_grant": false,
+    "disable_clickjack_protection_headers": false
+  },
+  "sandbox_version": "22",
+  "oidc_logout": {
+    "rp_logout_end_session_endpoint_discovery": true
+  },
+  "authorization_response_iss_parameter_supported": true,
+  "dpop_strict_refresh_token_binding": true,
+  "universal_login": {},
+  "resource_parameter_profile": "compatibility",
+  "client_id_metadata_document_supported": false,
+  "client_id_metadata_document_dynamic_registration_supported": false
+}

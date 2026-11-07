@@ -1,0 +1,16 @@
+{
+  "strategy": "google-oauth2",
+  "name": "google-oauth2",
+  "is_domain_connection": false,
+  "authentication": {
+    "active": true
+  },
+  "connected_accounts": {
+    "active": false
+  },
+  "enabled_clients": [
+    "Auth0 Deploy CLI",
+    "Default App",
+    "Pizza 42"
+  ]
+}
