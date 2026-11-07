@@ -1,0 +1,72 @@
+{
+  "name": "Marketing communication preferences",
+  "languages": {
+    "primary": "en"
+  },
+  "nodes": [
+    {
+      "id": "step_4Td2",
+      "type": "STEP",
+      "coordinates": {
+        "x": 207,
+        "y": -237
+      },
+      "config": {
+        "components": [
+          {
+            "id": "rich_text_hCeP",
+            "category": "BLOCK",
+            "type": "RICH_TEXT",
+            "config": {
+              "content": "<h2>Get 15% off your orders 🍕</h2><p>Join the Pizza 42 email list and we’ll take 15% off your order total — every time you order. You’ll get our latest specials and promotions in your inbox every week!</p>"
+            }
+          },
+          {
+            "id": "marketing_opt_in",
+            "category": "FIELD",
+            "type": "CHOICE",
+            "label": "marketing_opt_in",
+            "required": true,
+            "sensitive": false,
+            "config": {
+              "multiple": false,
+              "options": [
+                {
+                  "label": "Yes, email me specials and promotions",
+                  "value": "Yes, email me specials and promotions"
+                },
+                {
+                  "label": "No, don't email me promotions",
+                  "value": "No, don't email me promotions"
+                }
+              ]
+            }
+          },
+          {
+            "id": "next_button_US5N",
+            "category": "BLOCK",
+            "type": "NEXT_BUTTON",
+            "config": {
+              "text": "Continue"
+            }
+          }
+        ],
+        "next_node": "$ending"
+      }
+    }
+  ],
+  "start": {
+    "next_node": "step_4Td2",
+    "coordinates": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "ending": {
+    "resume_flow": true,
+    "coordinates": {
+      "x": 1194,
+      "y": -59
+    }
+  }
+}

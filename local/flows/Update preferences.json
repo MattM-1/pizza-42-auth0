@@ -1,0 +1,21 @@
+{
+  "name": "Update preferences",
+  "actions": [
+    {
+      "id": "update_user_HitP",
+      "type": "AUTH0",
+      "action": "UPDATE_USER",
+      "allow_failure": false,
+      "mask_output": false,
+      "params": {
+        "connection_id": "Auth0 - M2M",
+        "user_id": "{{context.user.user_id}}",
+        "changes": {
+          "app_metadata": {
+            "communication_preferences": "{{fields.communication_preferences}}"
+          }
+        }
+      }
+    }
+  ]
+}
