@@ -14,7 +14,8 @@
   "enabled_clients": [
     "Auth0 Deploy CLI",
     "Default App",
-    "Pizza 42"
+    "Pizza 42",
+    "Pizza 42 API (Test Application)"
   ],
   "options": {}
 }

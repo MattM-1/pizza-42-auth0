@@ -1,0 +1,6 @@
+{
+  "client_id": "Pizza 42 API (Test Application)",
+  "audience": "https://api.pizza42.example.com",
+  "scope": [],
+  "subject_type": "client"
+}

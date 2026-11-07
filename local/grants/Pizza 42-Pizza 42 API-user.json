@@ -1,0 +1,11 @@
+{
+  "client_id": "Pizza 42",
+  "audience": "https://api.pizza42.example.com",
+  "scope": [
+    "create:orders",
+    "read:orders",
+    "create:large-orders"
+  ],
+  "subject_type": "user",
+  "allow_all_scopes": false
+}
