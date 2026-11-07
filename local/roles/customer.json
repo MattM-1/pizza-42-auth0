@@ -1,0 +1,15 @@
+{
+  "name": "customer",
+  "description": "Pizza 42 customer role",
+  "type": "tenant",
+  "permissions": [
+    {
+      "permission_name": "create:orders",
+      "resource_server_identifier": "https://api.pizza42.example.com"
+    },
+    {
+      "permission_name": "read:orders",
+      "resource_server_identifier": "https://api.pizza42.example.com"
+    }
+  ]
+}
