@@ -10,6 +10,7 @@
   "oidc_logout": {
     "rp_logout_end_session_endpoint_discovery": true
   },
+  "customize_mfa_in_postlogin_action": true,
   "authorization_response_iss_parameter_supported": true,
   "dpop_strict_refresh_token_binding": true,
   "universal_login": {},
