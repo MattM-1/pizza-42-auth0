@@ -18,10 +18,12 @@
   "addons": {},
   "allowed_clients": [],
   "allowed_logout_urls": [
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "https://pizza-42.onrender.com"
   ],
   "callbacks": [
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "https://pizza-42.onrender.com"
   ],
   "native_social_login": {
     "apple": {
@@ -32,7 +34,7 @@
     }
   },
   "created_at": "2026-11-06T05:03:19.842Z",
-  "updated_at": "2026-11-06T05:53:29.553Z",
+  "updated_at": "2026-11-08T16:45:03.512Z",
   "jwt_configuration": {
     "alg": "RS256",
     "lifetime_in_seconds": 36000,
@@ -47,7 +49,8 @@
     "refresh_token"
   ],
   "web_origins": [
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "https://pizza-42.onrender.com"
   ],
   "custom_login_page_on": true
 }
