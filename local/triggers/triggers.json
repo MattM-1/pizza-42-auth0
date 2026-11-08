@@ -15,6 +15,10 @@
     {
       "action_name": "Add Customer ID",
       "display_name": "Add Customer ID"
+    },
+    {
+      "action_name": "Assign Customer Role",
+      "display_name": "Assign Customer Role"
     }
   ]
 }

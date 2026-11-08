@@ -1,0 +1,8 @@
+{
+  "client_id": "Assign Customer Role M2M",
+  "audience": "https://dev-71pawhlsa64b3iih.us.auth0.com/api/v2/",
+  "scope": [
+    "update:users"
+  ],
+  "subject_type": "client"
+}

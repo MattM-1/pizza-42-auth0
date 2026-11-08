@@ -1,0 +1,25 @@
+{
+  "name": "Assign Customer Role",
+  "code": "./actions/Assign Customer Role/code.js",
+  "runtime": "node22",
+  "status": "built",
+  "dependencies": [],
+  "secrets": [
+    {
+      "name": "DOMAIN"
+    },
+    {
+      "name": "CLIENT_ID"
+    },
+    {
+      "name": "CLIENT_SECRET"
+    }
+  ],
+  "supported_triggers": [
+    {
+      "id": "post-login",
+      "version": "v3"
+    }
+  ],
+  "deployed": true
+}

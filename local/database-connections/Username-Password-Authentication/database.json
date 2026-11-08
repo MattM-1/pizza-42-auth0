@@ -12,6 +12,7 @@
     "Username-Password-Authentication"
   ],
   "enabled_clients": [
+    "Assign Customer Role M2M",
     "Auth0 Deploy CLI",
     "Default App",
     "Pizza 42",
