@@ -11,6 +11,10 @@
     {
       "action_name": "Add High-Level Scopes",
       "display_name": "Add High-Level Scopes"
+    },
+    {
+      "action_name": "Add Customer ID",
+      "display_name": "Add Customer ID"
     }
   ]
 }
