@@ -6,7 +6,11 @@
     "revoke_refresh_token_grant": false,
     "disable_clickjack_protection_headers": false
   },
+  "friendly_name": "Pizza 42 Customer Accounts",
+  "picture_url": "",
   "sandbox_version": "22",
+  "support_email": "",
+  "support_url": "",
   "oidc_logout": {
     "rp_logout_end_session_endpoint_discovery": true
   },
