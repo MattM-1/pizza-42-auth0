@@ -34,19 +34,49 @@ The Actions run in this order for every login (see `triggers/triggers.json`):
 
 | # | Action | Purpose |
 |---|---|---|
-| 1 | **Marketing** | On first login, shows the marketing Form and stores the answer in `app_metadata.marketing_opt_in`. On every login, adds the opt-in claim to the ID token. |
-| 2 | **MFA** | When the app requests step-up (`acr_values` = multi-factor), challenges the user's second factor or enrolls one. |
-| 3 | **Add High-Level Scopes** | Adds `create:large-orders` to the access token only if an MFA step was completed in this session. |
+| 1 | **Marketing** | On first login, shows the marketing Form and stores the answer in `app_metadata.marketing_opt_in`. On every login, adds the opt-in claim to the ID token and the access token. |
+| 2 | **MFA** | When the app requests step-up (`acr_values` = multi-factor), it marks the login transaction (`mfa_triggered`) and challenges the user (TOTP or email), or enrolls TOTP if they have no second factor. All MFA is triggered through one `requireMfa()` function. |
+| 3 | **Add High-Level Scopes** | Adds `create:large-orders` to the access token only when the MFA Action marked this transaction **and** an `otp` or `email` MFA method was completed. Silent token renewals never get the scope. |
 | 4 | **Add Customer ID** | Creates a unique `pizza42_customer_id` once, stores it in `app_metadata`, and adds it as a claim to the ID and access tokens. |
 | 5 | **Assign Customer Role** | Gives new users the `customer` role through the Management API and adds the base scopes (`create:orders`, `read:orders`) to that first login's token. |
+| 6 | **Add Email Verified Access Token Claim** | Adds the standard `email_verified` claim to the access token so the API can require a verified email. |
 
-Custom claims use the namespace `https://pizza42.example.com/`, which must match `claimsNamespace` in the SPA and `CLAIMS_NAMESPACE` in the API.
+```mermaid
+sequenceDiagram
+  participant B as Browser (SPA)
+  participant A as Auth0
+  participant Act as Post-Login Actions
+  B->>A: /authorize (code + PKCE, API audience, scopes)
+  A->>A: Universal Login: passkey, password or Google
+  A->>Act: 1. Marketing (form on first login)
+  A->>Act: 2. MFA (only when step-up is requested)
+  Note over A: Later Actions wait until the challenge is fulfilled
+  A->>Act: 3. Add High-Level Scopes (only after MFA)
+  A->>Act: 4. Add Customer ID
+  A->>Act: 5. Assign Customer Role
+  A->>Act: 6. Add Email Verified Access Token Claim
+  A-->>B: Code, exchanged for ID token and access token
+```
+
+### Claims these Actions add
+
+| Claim | Token | Action |
+|---|---|---|
+| `https://pizza42.example.com/marketing` (`{ marketing_opt_in }`) | ID | Marketing |
+| `https://pizza42.example.com/marketing_opt_in` (boolean) | Access | Marketing |
+| `https://pizza42.example.com/customer_id` | ID and access | Add Customer ID |
+| `scope` includes `create:large-orders` | Access | Add High-Level Scopes |
+| `scope` includes `create:orders read:orders` (first login) | Access | Assign Customer Role |
+| `email_verified` (standard, not namespaced) | Access | Add Email Verified Access Token Claim |
+
+Custom claims use the namespace `https://pizza42.example.com/`, which must match `claimsNamespace` in the SPA and
+`CLAIMS_NAMESPACE` in the API. Standard OIDC profile claims such as `email_verified` are allowed on API access tokens without one.
 
 ## How the pieces fit together
 
 - The SPA requests the Pizza 42 API audience with `create:orders read:orders`.
-- The API checks the token's signature, issuer, audience and expiry, then checks one scope per endpoint.
-- `create:large-orders` is defined on the API but is **not** part of the `customer` role. Only the Actions above can add it, and only after MFA, so the scope itself is proof of step-up.
+- The API checks the token's signature, issuer, audience and expiry, then checks one scope per endpoint and the `email_verified` claim on orders.
+- `create:large-orders` is defined on the API but is **not** part of the `customer` role. Only the Actions above can add it, and only after MFA in that same login, so the scope itself is proof of step-up.
 
 ## Required settings and secrets
 
