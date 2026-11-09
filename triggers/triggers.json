@@ -19,6 +19,10 @@
     {
       "action_name": "Assign Customer Role",
       "display_name": "Assign Customer Role"
+    },
+    {
+      "action_name": "Add Email Verified Access Token Claim",
+      "display_name": "Add Email Verified Access Token Claim"
     }
   ]
 }
